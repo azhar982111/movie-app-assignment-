@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #navbar {
+        height: 40px;
+        width: 90%;
+        /* background-color: blueviolet; */
+        /* border: 1px solid black; */
+        display: flex;
+        flex-direction: row-reverse;
+        border-radius: 15px;
+        padding-right: 50px;
+        justify-content: center;
+
+    }
+
+    #navbar li {
+        width: 100px;
+        /* border: 1px solid black; */
+        text-align: center;
+        text-decoration: none;
+        list-style-type: none;
+        padding-top: 8px;
+        border-radius: 10px;
+
+
+    }
+
+    #navbar a {
+        text-decoration: none;
+        color: rgb(248, 248, 248);
+    }
+
+
+    #home {
+        margin-right: 500px;
+        background-color: blue;
+        text-decoration: none;
+    }
+
+    #navbar>:nth-child(2) {
+        background-color: rgb(0, 255, 64);
+        margin-right: 20px;
+    }
+
+    #navbar>:nth-child(1) {
+        background-color: rgb(255, 8, 90);
+    }
+
+    /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nav bar code above */
+
+    body {
+        background-color: rgb(17, 17, 56);
+    }
+
+    #container {
+        background-color: rgb(49, 25, 51);
+        width: 350px;
+        height: 250px;
+        margin: auto;
+        margin-top: 100px;
+
+    }
+
+    #inputtags {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-left: 21px;
+    }
+
+    #inputtags input {
+        width: 90%;
+        margin: 5px;
+        height: 25px;
+        background-color: rgb(71, 61, 61);
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    input[type="number"]::placeholder {
+
+        /* Firefox, Chrome, Opera */
+        padding-left: 10px;
+    }
+
+    input[type="text"]::placeholder {
+
+        /* Firefox, Chrome, Opera */
+        padding-left: 10px;
+    }
+
+    input[type="email"]::placeholder {
+
+        /* Firefox, Chrome, Opera */
+        padding-left: 10px;
+    }
+
+    #buttonSignUp {
+        background-color: red;
+        border-radius: 5px;
+        width: 80px;
+        height: 25px;
+        border: none;
+        margin-left: 134px;
+        margin-top: 10px;
+        color: white;
+
+    }
+</style>
+
+<body>
+
+
+    <form id="navbar">
+
+        <li><a href="./login.html">Login</a></li>
+        <li> <a href="./signup.html">Signup</a> </li>
+        <li id="home"> <a href="./index.html">Home</a></li>
+    </form>
+
+
+
+
+
+    <div id="container">
+        <form id="inputtags">
+            <input id="name" type="text" placeholder="Username">
+            <input id="email" type="email" placeholder="Email">
+            <input id="password" type="text" placeholder="Password">
+            <input id="retypswd" type="text" placeholder="Retype Password">
+            <input id="number" type="number" placeholder="Phone Number">
+            <button id="buttonSignUp" onclick="signup()">Signup</button>
+        </form>
+        
+    </div>
+
+
+
+
+</body>
+
+<script>
+
+// document.getElementById("#inputtags")
+// document.querySelector("inputtags").addEventListener("submit", signup)
+
+var a = []
+var obj = {}
+function signup() {
+
+    event.preventDefault()
+    
+    var name = document.querySelector("#name").value
+    var email = document.querySelector("#email").value
+    var password = document.querySelector("#password").value
+    var retypswd = document.querySelector("#retypswd").value
+    var number = document.querySelector("#number").value
+
+    console.log(name,email,password)
+
+
+obj.name = name
+obj.email = email
+obj.password = password
+obj.retypswd = retypswd
+obj.number = number
+    a.push(obj)
+
+    // obj = {}
+
+    console.log(a)
+
+    localStorage.setItem("details", JSON.stringify(a))
+    alert("signup successfull")
+    // location.reload();
+}
+
+</script>
+
+</html>

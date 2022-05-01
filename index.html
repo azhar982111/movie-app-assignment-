@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body style="background-color: rgb(0, 0, 0);">
+
+
+    <div>
+
+        <div id="navbar">
+            <li><a href="./login.html">Login</a></li>
+            <li> <a href="./signup.html">Signup</a> </li>
+            <li id="home"> <a href="./index.html">Home</a></li>
+        </div>
+
+    </div>
+
+    <div id="slideshow">
+
+        <img src="./movie img/deadpool.jpg" id="pic" style="width: 100%; height: 400px;" />
+
+
+
+    </div>
+
+    <div id="movieDisplay">
+
+        <!-- <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div> -->
+
+    </div>
+
+</body>
+
+<script>
+
+
+
+    var images = ["https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg",
+        "./movie img/deadpool.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG7ZiEiuQBui9nH86Rw3WSiYR8fsr0Zk_cjg&usqp=CAU",
+        "https://weddingdressnews.co.uk/wp-content/uploads/2021/12/Spider-Man-No-Way-Home-Box-Office-Day-15-Becomes-3rd.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl2fZkS-MPW_uwuaJVB_UrdC9yzUpV5DOv6w&usqp=CAU"];
+
+    var i = 0;
+    function slide() {
+        var image = document.getElementById("pic");
+
+        image.src = images[i];
+        i++;
+        if (i >= images.length) {
+            i = 0;
+        }
+    }
+    setInterval("slide()", 2000);
+
+
+    var movies = [{ name: "spider man", releaseDate: "2005", imdbRating: "7.5", imageLink: "https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg" },
+    { name: "Venom", releaseDate: "2006", imdbRating: "7.8", imageLink: "./movie img/deadpool.jpg" },
+    { name: "batman", releaseDate: "2007", imdbRating: "7.9", imageLink: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG7ZiEiuQBui9nH86Rw3WSiYR8fsr0Zk_cjg&usqp=CAU" },
+    { name: "superman", releaseDate: "2007", imdbRating: "7.9", imageLink: "https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg" },
+    { name: "thor", releaseDate: "2007", imdbRating: "7.9", imageLink: "https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg" },
+    { name: "ironman", releaseDate: "2007", imdbRating: "7.9", imageLink: "https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg" },
+    { name: "infinity war", releaseDate: "2007", imdbRating: "7.9", imageLink: "https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg" },
+    { name: "sky fall", releaseDate: "2007", imdbRating: "7.9", imageLink: "https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg" },
+    { name: "end game", releaseDate: "2007", imdbRating: "7.9", imageLink: "https://itscelebrity.com/wp-content/uploads/2021/11/no-time-to-die.jpg" }]
+
+    // console.log(movies)
+
+    var display = document.getElementById("movieDisplay")
+
+    movies.forEach((element) => {
+
+        let div = document.createElement("div")
+        div.setAttribute("id", "divison")
+
+
+        let image = document.createElement("img")
+        image.src = element.imageLink
+        image.setAttribute("id", "images")
+        console.log(image)
+
+        let movieName = document.createElement("p")
+        movieName.textContent = element.name;
+
+        let releaseDate = document.createElement("p")
+        releaseDate.textContent = element.releaseDate;
+
+        let imdbRating = document.createElement("p")
+        imdbRating.textContent = element.imdbRating;
+
+        div.append(movieName, image, movieName)
+
+        display.appendChild(div)
+
+        // console.log(div)
+
+    });
+
+
+
+</script>
+
+</html>
